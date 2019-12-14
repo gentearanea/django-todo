@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <div class="jumbotron">
+        <h1 class="display-4">TODOリスト</h1>
+        <p class="lead">todoリストを毎日作ろう</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class='container'>
+        {% for item in object_list %}
+            <div class="alert alert-{{ item.priority }}" role="alert">
+                <p>タイトル：{{ item.title }}</p>
+                <a href="#" class="btn btn-info btn-lg" tabindex="-1" role="button" aria-disabled="true">編集</a>
+                <a href="#" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">削除</a>
+                <a href="#" class="btn btn-success btn-lg" tabindex="-1" role="button" aria-disabled="true">詳細</a>
+            </div>
+            <div class="alert alert-light" role="alert">
+                メモ：{{ item.memo }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
