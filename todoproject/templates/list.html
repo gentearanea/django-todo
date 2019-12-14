@@ -13,10 +13,10 @@
     <div class='container'>
         {% for item in object_list %}
             <div class="alert alert-{{ item.priority }}" role="alert">
-                <p>タイトル：{{ item.title }}</p>
-                <a href="#" class="btn btn-info btn-lg" tabindex="-1" role="button" aria-disabled="true">編集</a>
-                <a href="#" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">削除</a>
-                <a href="#" class="btn btn-success btn-lg" tabindex="-1" role="button" aria-disabled="true">詳細</a>
+                <p>タイトル：{{ item.title }}　期日：{{ item.duedate}}</p>
+                <a href="{% url 'update' item.pk %}" class="btn btn-info btn-lg" tabindex="-1" role="button" aria-disabled="true">編集</a>
+                <a href="{% url 'delete' item.pk %}" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">削除</a>
+                <a href="{% url 'detail' item.pk %}" class="btn btn-success btn-lg" tabindex="-1" role="button" aria-disabled="true">詳細</a>
             </div>
             <div class="alert alert-light" role="alert">
                 メモ：{{ item.memo }}
